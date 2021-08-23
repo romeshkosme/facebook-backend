@@ -7,12 +7,12 @@ const generateAccessToken = async (data) => {
 
 const sendEmail = async ({otp, email}) => {
   const smtpSetting = {
-    host: "email-smtp.us-east-2.amazonaws.com",
-    port: 587,
+    host: process.env.smtp_host,
+    port: process.env.smtp_port,
     secure: false, // true for 465, false for other ports
     auth: {
-      user: "AKIA2KZBAAHIS7IPYWEA", // generated ethereal user
-      pass: "BD8a241aDr2KnMUy454Tfrg/3vEvRqQBo5dUBfSaMCNj", // generated ethereal password
+      user: process.env.smtp_user, // generated ethereal user
+      pass: process.env.smtp_pass, // generated ethereal password
     },
   }
 
