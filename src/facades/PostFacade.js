@@ -35,7 +35,6 @@ class PostFacade {
       try {
         const postService = new PostService();
         const data = await postService.getAll({user: user.id})
-        console.log(" data  :: ", data)
         if (data) {
           resolve({
             code: 200,

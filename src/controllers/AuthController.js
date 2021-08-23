@@ -6,6 +6,7 @@
         this.authFacade = new AuthFacade()
         this.register = this.register.bind(this)
         this.login = this.login.bind(this)
+        this.verifyUser = this.verifyUser.bind(this)
         this.hello = this.hello.bind(this)
     }
     hello(req, res){
@@ -20,6 +21,16 @@
 
     register(req, res){
         this.authFacade.register(req.body)
+        .then(data => {
+            res.status(data.code).json(data.response);
+        })
+        .catch(err => {
+            res.status(err.code).json(err.response)
+        });
+    }
+
+    verifyUser(req, res){
+        this.authFacade.verifyUser(req.body)
         .then(data => {
             res.status(data.code).json(data.response);
         })

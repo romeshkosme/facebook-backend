@@ -9,6 +9,7 @@ const schema = new Schema({
     active: {type: Boolean, default: false},
     date_of_birth: {type: Object, required: true},
     gender: {type: String, required: true},
+    otp: {type: String, required: true},
   }, { timestamps: true }, { versionKey: false }
 );
 
